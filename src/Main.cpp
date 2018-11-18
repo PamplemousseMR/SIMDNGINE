@@ -26,6 +26,7 @@ int main()
     emmintrin();
     pmmintrin();
     tmmintrin();
+    smmintrin();
 
 	return 0;
 }
