@@ -53,20 +53,20 @@ void mmintrin()
     /*
     * Shift intrinsics
     */
-    m64 = _m_psllw(m64, m64);                                       // r[0:15] = count[0:63]>15 ? 0 : (ZeroExtend)(a[0:15] << count[0:63]), r[16:31] = cout[0:63]>15 ? 0 : (ZeroExtend)(a[16:31] << count[0:63]), r[32:47] = cout[0:63]>15 ? 0 : (ZeroExtend)(a[32:47] << count[0:63]), r[48:63] = cout[0:63]>15 ? 0 : (ZeroExtend)(a[48:63] << count[0:63])
-    m64 = _m_psllwi(m64, in);                                       // r[0:15] = cout[0:63]>15 ? 0 : (ZeroExtend)(a[0:15] << imm8[0:7]), r[16:31] = cout[0:63]>15 ? 0 : (ZeroExtend)(a[16:31] << imm8[0:7]), r[32:47] = imm3[0:7]>15 ? 0 : (ZeroExtend)(a[32:47] << imm8[0:7]), r[48:63] = cout[0:63]>15 ? 0 : (ZeroExtend)(a[48:63] << imm8[0:7])
-    m64 = _m_pslld(m64, m64);                                       //
-    m64 = _m_pslldi(m64, in);                                       //
-    m64 = _m_psllq(m64, m64);                                       //
-    m64 = _m_psllqi(m64, in);                                       //
-    m64 = _m_psraw(m64, m64);                                       //
-    m64 = _m_psrawi(m64, in);                                       //
-    m64 = _m_psrad(m64, m64);                                       //
-    m64 = _m_psradi(m64, in);                                       //
-    m64 = _m_psrlw(m64, m64);                                       //
-    m64 = _m_psrlwi(m64, in);                                       //
-    m64 = _m_psrld(m64, m64);                                       //
-    m64 = _m_psrldi(m64, in);                                       //
+    m64 = _m_psllw(m64, m64);                                       // r[0:15] = count[0:63]>15 ? 0 : (ZeroExtend)(a[0:15] << count[0:63]), r[16:31] = count[0:63]>15 ? 0 : (ZeroExtend)(a[16:31] << count[0:63]), r[32:47] = count[0:63]>15 ? 0 : (ZeroExtend)(a[32:47] << count[0:63]), r[48:63] = count[0:63]>15 ? 0 : (ZeroExtend)(a[48:63] << count[0:63])
+    m64 = _m_psllwi(m64, in);                                       // r[0:15] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[0:15] << imm8[0:7]), r[16:31] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[16:31] << imm8[0:7]), r[32:47] = imm3[0:7]>15 ? 0 : (ZeroExtend)(a[32:47] << imm8[0:7]), r[48:63] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[48:63] << imm8[0:7])
+    m64 = _m_pslld(m64, m64);                                       // r[0:31] = count[0:63]>31 ? 0 : (ZeroExtend)(a[0:31] << count[0:63]), r[32:63] = count[0:63]>31 ? 0 : (ZeroExtend)(a[32:63] << count[0:63])
+    m64 = _m_pslldi(m64, in);                                       // r[0:31] = imm8[0:7]>31 ? 0 : (ZeroExtend)(a[0:31] << imm8[0:7]), r[32:63] = imm8[0:7]>31 ? 0 : (ZeroExtend)(a[32:63] << imm8[0:7])
+    m64 = _m_psllq(m64, m64);                                       // r[0:63] = count[0:63]>63 ? 0 : (ZeroExtend)(a[0:63] << count[0:63])
+    m64 = _m_psllqi(m64, in);                                       // r[0:63] = imm8[0:7]>63 ? 0 : (ZeroExtend)(a[0:63] << imm8[0:7])
+    m64 = _m_psraw(m64, m64);                                       // r[0:15] = count[0:63]>15 ? SignBit : (SignExtend)(a[0:15] >> count[0:63]), r[16:31] = count[0:63]>15 ? SignBit : (SignExtend)(a[16:31] >> count[0:63]), r[32:47] = count[0:63]>15 ? SignBit : (SignExtend)(a[32:47] >> count[0:63]), r[48:63] = count[0:63]>15 ? SignBit : (SignExtend)(a[48:63] >> count[0:63])
+    m64 = _m_psrawi(m64, in);                                       // r[0:15] = imm8[0:7]>15 ? SignBit : (SignExtend)(a[0:15] >> imm8[0:7]), r[16:31] = imm8[0:7]>15 ? SignBit : (SignExtend)(a[16:31] >> imm8[0:7]), r[32:47] = imm3[0:7]>15 ? SignBit : (SignExtend)(a[32:47] >> imm8[0:7]), r[48:63] = imm8[0:7]>15 ? SignBit : (SignExtend)(a[48:63] >> imm8[0:7])
+    m64 = _m_psrad(m64, m64);                                       // r[0:31] = count[0:63]>31 ? SignBit : (SignExtend)(a[0:31] >> count[0:63]), r[32:63] = count[0:63]>31 ? SignBit : (SignExtend)(a[32:63] >> count[0:63])
+    m64 = _m_psradi(m64, in);                                       // r[0:31] = imm8[0:7]>31 ? SignBit : (SignExtend)(a[0:31] >> imm8[0:7]), r[32:63] = imm8[0:7]>31 ? SignBit : (SignExtend)(a[32:63] >> imm8[0:7])
+    m64 = _m_psrlw(m64, m64);                                       // r[0:15] = count[0:63]>15 ? 0 : (ZeroExtend)(a[0:15] >> count[0:63]), r[16:31] = count[0:63]>15 ? 0 : (ZeroExtend)(a[16:31] >> count[0:63]), r[32:47] = count[0:63]>15 ? 0 : (ZeroExtend)(a[32:47] >> count[0:63]), r[48:63] = count[0:63]>15 ? 0 : (ZeroExtend)(a[48:63] >> count[0:63])
+    m64 = _m_psrlwi(m64, in);                                       // r[0:15] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[0:15] >> imm8[0:7]), r[16:31] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[16:31] >> imm8[0:7]), r[32:47] = imm3[0:7]>15 ? 0 : (ZeroExtend)(a[32:47] >> imm8[0:7]), r[48:63] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[48:63] >> imm8[0:7])
+    m64 = _m_psrld(m64, m64);                                       // r[0:31] = count[0:63]>31 ? 0 : (ZeroExtend)(a[0:31] >> count[0:63]), r[32:63] = count[0:63]>31 ? 0 : (ZeroExtend)(a[32:63] >> count[0:63])
+    m64 = _m_psrldi(m64, in);                                       // r[0:31] = imm8[0:7]>31 ? 0 : (ZeroExtend)(a[0:31] >> imm8[0:7]), r[32:63] = imm8[0:7]>31 ? 0 : (ZeroExtend)(a[32:63] >> imm8[0:7])
     m64 = _m_psrlq(m64, m64);                                       // count[0:63]>63 > 0 : r[0:63] = (ZeroExtend)(a[0:63] >> count[0:63])
     m64 = _m_psrlqi(m64, in);                                       // imm8[0:7]>63 > 0 : r[0:63] = (ZeroExtend)(a[0:63] >> imm8[0:7])
 
@@ -132,22 +132,22 @@ void mmintrin()
     m64 = _mm_subs_pu8(m64, m64);									// r[0:7] = (Saturate_To_UnsignedInt8)a[0:7]-b[0:7], r[8:15] = (Saturate_To_UnsignedInt8)a[8:15]-b[8:15], r[16:23] = (Saturate_To_UnsignedInt8)a[16:23]-b[16:23], r[24:31] = (Saturate_To_UnsignedInt8)a[24:31]-b[24:31], r[32:39] = (Saturate_To_UnsignedInt8)a[32:39]-b[32:39], r[40:47] = (Saturate_To_UnsignedInt8)a[40:47]-b[40:47], r[48:55] = (Saturate_To_UnsignedInt8)a[48:55]-b[48:55], r[56:63] = (Saturate_To_UnsignedInt8)a[56:63]-b[56:63]
     m64 = _mm_subs_pu16(m64, m64);									// r[0:15] = (Saturate_To_UnsignedInt16)a[0:15]-b[0:15], r[16:31] = (Saturate_To_UnsignedInt16)a[16:31]-b[16:31], r[32:47] = (Saturate_To_UnsignedInt16)a[32:47]-b[32:47], r[48:63] = (Saturate_To_UnsignedInt16)a[48:63]-b[48:63]
     m64 = _mm_madd_pi16(m64, m64);									// r[0:31] = a[16:31]*b[16:31] + a[0:15]*b[0:15], r[32:63] = a[48:63]*b[48:63] + a[32:47]*b[32:47]
-    m64 = _mm_mulhi_pi16(m64, m64);     							//
-    m64 = _mm_mullo_pi16(m64, m64);         						//
-    m64 = _mm_sll_pi16(m64, m64);                                   //
-    m64 = _mm_slli_pi16(m64, in);                                   //
-    m64 = _mm_sll_pi32(m64, m64);                                   //
-    m64 = _mm_slli_pi32(m64, in);                                   //
-    m64 = _mm_sll_si64(m64, m64);                                   //
-    m64 = _mm_slli_si64(m64, in);                                   //
-    m64 = _mm_sra_pi16(m64, m64);                                   //
-    m64 = _mm_srai_pi16(m64, in);                                   //
-    m64 = _mm_sra_pi32(m64, m64);                                   //
-    m64 = _mm_srai_pi32(m64, in);                                   //
-    m64 = _mm_srl_pi16(m64, m64);                                   //
-    m64 = _mm_srli_pi16(m64, in);                                   //
-    m64 = _mm_srl_pi32(m64, m64);                                   //
-    m64 = _mm_srli_pi32(m64, in);                                   //
+    m64 = _mm_mulhi_pi16(m64, m64);     							// r[0:15] = (a[0:15]*b[0:15])[16:31], r[16:31] = (a[16:31]*b[16:31])[16:31], r[32:47] = (a[32:47]*b[32:47])[16:31], r[48:63] = (a[48:63]*b[48:63])[16:31]
+    m64 = _mm_mullo_pi16(m64, m64);         						// r[0:15] = (a[0:15]*b[0:15])[0:15], r[16:31] = (a[16:31]*b[16:31])[0:15], r[32:47] = (a[32:47]*b[32:47])[0:15], r[48:63] = (a[48:63]*b[48:63])[0:15]
+    m64 = _mm_sll_pi16(m64, m64);                                   // r[0:15] = count[0:63]>15 ? 0 : (ZeroExtend)(a[0:15] << count[0:63]), r[16:31] = count[0:63]>15 ? 0 : (ZeroExtend)(a[16:31] << count[0:63]), r[32:47] = count[0:63]>15 ? 0 : (ZeroExtend)(a[32:47] << count[0:63]), r[48:63] = count[0:63]>15 ? 0 : (ZeroExtend)(a[48:63] << count[0:63])
+    m64 = _mm_slli_pi16(m64, in);                                   // r[0:15] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[0:15] << imm8[0:7]), r[16:31] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[16:31] << imm8[0:7]), r[32:47] = imm3[0:7]>15 ? 0 : (ZeroExtend)(a[32:47] << imm8[0:7]), r[48:63] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[48:63] << imm8[0:7])
+    m64 = _mm_sll_pi32(m64, m64);                                   // r[0:31] = count[0:63]>31 ? 0 : (ZeroExtend)(a[0:31] << count[0:63]), r[32:63] = count[0:63]>31 ? 0 : (ZeroExtend)(a[32:63] << count[0:63])
+    m64 = _mm_slli_pi32(m64, in);                                   // r[0:31] = imm8[0:7]>31 ? 0 : (ZeroExtend)(a[0:31] << imm8[0:7]), r[32:63] = imm8[0:7]>31 ? 0 : (ZeroExtend)(a[32:63] << imm8[0:7])
+    m64 = _mm_sll_si64(m64, m64);                                   // r[0:63] = count[0:63]>63 ? 0 : (ZeroExtend)(a[0:63] << count[0:63])
+    m64 = _mm_slli_si64(m64, in);                                   // r[0:63] = imm8[0:7]>63 ? 0 : (ZeroExtend)(a[0:63] << imm8[0:7])
+    m64 = _mm_sra_pi16(m64, m64);                                   // r[0:15] = count[0:63]>15 ? SignBit : (SignExtend)(a[0:15] >> count[0:63]), r[16:31] = count[0:63]>15 ? SignBit : (SignExtend)(a[16:31] >> count[0:63]), r[32:47] = count[0:63]>15 ? SignBit : (SignExtend)(a[32:47] >> count[0:63]), r[48:63] = count[0:63]>15 ? SignBit : (SignExtend)(a[48:63] >> count[0:63])
+    m64 = _mm_srai_pi16(m64, in);                                   // r[0:15] = imm8[0:7]>15 ? SignBit : (SignExtend)(a[0:15] >> imm8[0:7]), r[16:31] = imm8[0:7]>15 ? SignBit : (SignExtend)(a[16:31] >> imm8[0:7]), r[32:47] = imm3[0:7]>15 ? SignBit : (SignExtend)(a[32:47] >> imm8[0:7]), r[48:63] = imm8[0:7]>15 ? SignBit : (SignExtend)(a[48:63] >> imm8[0:7])
+    m64 = _mm_sra_pi32(m64, m64);                                   // r[0:31] = count[0:63]>31 ? SignBit : (SignExtend)(a[0:31] >> count[0:63]), r[32:63] = count[0:63]>31 ? SignBit : (SignExtend)(a[32:63] >> count[0:63])
+    m64 = _mm_srai_pi32(m64, in);                                   // r[0:31] = imm8[0:7]>31 ? SignBit : (SignExtend)(a[0:31] >> imm8[0:7]), r[32:63] = imm8[0:7]>31 ? SignBit : (SignExtend)(a[32:63] >> imm8[0:7])m64 = _mm_srl_pi16(m64, m64);                                   //
+    m64 = _mm_srl_pi16(m64, m64);                                   // r[0:15] = count[0:63]>15 ? 0 : (ZeroExtend)(a[0:15] >> count[0:63]), r[16:31] = count[0:63]>15 ? 0 : (ZeroExtend)(a[16:31] >> count[0:63]), r[32:47] = count[0:63]>15 ? 0 : (ZeroExtend)(a[32:47] >> count[0:63]), r[48:63] = count[0:63]>15 ? 0 : (ZeroExtend)(a[48:63] >> count[0:63])
+    m64 = _mm_srli_pi16(m64, in);                                   // r[0:15] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[0:15] >> imm8[0:7]), r[16:31] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[16:31] >> imm8[0:7]), r[32:47] = imm3[0:7]>15 ? 0 : (ZeroExtend)(a[32:47] >> imm8[0:7]), r[48:63] = imm8[0:7]>15 ? 0 : (ZeroExtend)(a[48:63] >> imm8[0:7])
+    m64 = _mm_srl_pi32(m64, m64);                                   // r[0:31] = count[0:63]>31 ? 0 : (ZeroExtend)(a[0:31] >> count[0:63]), r[32:63] = count[0:63]>31 ? 0 : (ZeroExtend)(a[32:63] >> count[0:63])
+    m64 = _mm_srli_pi32(m64, in);                                   // r[0:31] = imm8[0:7]>31 ? 0 : (ZeroExtend)(a[0:31] >> imm8[0:7]), r[32:63] = imm8[0:7]>31 ? 0 : (ZeroExtend)(a[32:63] >> imm8[0:7])
     m64 = _mm_srl_si64(m64, m64);                                   // count[0:63]>63 > 0 : r[0:63] = (ZeroExtend)(a[0:63] >> count[0:63])
     m64 = _mm_srli_si64(m64, in);                                   // imm8[0:7]>63 > 0 : r[0:63] = (ZeroExtend)(a[0:63] >> imm8[0:7])
     m64 = _mm_and_si64(m64, m64);							        // r[0:63] = a[0:63] & b[0:63]
