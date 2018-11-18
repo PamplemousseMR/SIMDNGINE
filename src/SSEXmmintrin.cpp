@@ -157,7 +157,7 @@ void xmmintrin()
     * Support for MMX extension intrinsics
     */
 #if defined(_M_IX86) || defined(__unix)
-    alignas(16) char arrChar4[4];
+    alignas(8) char arrChar4[8];
 
     /*
     * Conversions
