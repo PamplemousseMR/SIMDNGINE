@@ -85,6 +85,7 @@ matrix:
     #==============================
 
     - os: linux
+      dist: xenial
       compiler: gcc-4.9
       addons:
         apt:
@@ -95,6 +96,7 @@ matrix:
       env: MATRIX_EVAL="CXX=g++-4.9 && BUILD_TYPE=Debug"
 
     - os: linux
+      dist: xenial
       compiler: gcc-5
       addons:
         apt:
@@ -105,6 +107,7 @@ matrix:
       env: MATRIX_EVAL="CXX=g++-5 && BUILD_TYPE=Debug"
 
     - os: linux
+      dist: xenial
       compiler: gcc-6
       addons:
         apt:
@@ -115,6 +118,7 @@ matrix:
       env: MATRIX_EVAL="CXX=g++-6 && BUILD_TYPE=Debug"
 
     - os: linux
+      dist: xenial
       compiler: gcc-7
       addons:
         apt:
@@ -125,6 +129,7 @@ matrix:
       env: MATRIX_EVAL="CXX=g++-7 && BUILD_TYPE=Debug"
 
     - os: linux
+      dist: xenial
       compiler: gcc-8
       addons:
         apt:
@@ -141,6 +146,7 @@ matrix:
     #==============================
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -152,6 +158,7 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-3.6 && BUILD_TYPE=Debug"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -163,6 +170,7 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-3.7 && BUILD_TYPE=Debug"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -174,6 +182,7 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-3.8 && sudo apt-get install libc++-dev && BUILD_TYPE=Debug"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -184,6 +193,7 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-3.9 && sudo apt-get install libc++-dev && BUILD_TYPE=Debug"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -194,10 +204,11 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-4.0 && BUILD_TYPE=Debug"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-xenial-5.0
           packages:
             - clang-5.0
       env:
@@ -284,6 +295,7 @@ matrix:
     #==============================
 
     - os: linux
+      dist: xenial
       compiler: gcc-4.9
       addons:
         apt:
@@ -294,6 +306,7 @@ matrix:
       env: MATRIX_EVAL="CXX=g++-4.9 && BUILD_TYPE=Release"
 
     - os: linux
+      dist: xenial
       compiler: gcc-5
       addons:
         apt:
@@ -304,6 +317,7 @@ matrix:
       env: MATRIX_EVAL="CXX=g++-5 && BUILD_TYPE=Release"
 
     - os: linux
+      dist: xenial
       compiler: gcc-6
       addons:
         apt:
@@ -314,6 +328,7 @@ matrix:
       env: MATRIX_EVAL="CXX=g++-6 && BUILD_TYPE=Release"
 
     - os: linux
+      dist: xenial
       compiler: gcc-7
       addons:
         apt:
@@ -324,6 +339,7 @@ matrix:
       env: MATRIX_EVAL="CXX=g++-7 && BUILD_TYPE=Release"
 
     - os: linux
+      dist: xenial
       compiler: gcc-8
       addons:
         apt:
@@ -340,6 +356,7 @@ matrix:
     #==============================
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -351,6 +368,7 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-3.6 && BUILD_TYPE=Release"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -362,6 +380,7 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-3.7 && BUILD_TYPE=Release"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -373,6 +392,7 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-3.8 && sudo apt-get install libc++-dev && BUILD_TYPE=Release"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -383,6 +403,7 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-3.9 && sudo apt-get install libc++-dev && BUILD_TYPE=Release"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
@@ -393,10 +414,11 @@ matrix:
         - MATRIX_EVAL="CXX=clang++-4.0 && BUILD_TYPE=Release"
 
     - os: linux
+      dist: xenial
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-xenial-5.0
           packages:
             - clang-5.0
       env:
@@ -412,4 +434,4 @@ before_script:
   - cmake ${TRAVIS_BUILD_DIR} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_COMPILER=${CXX}
 
 script:
-  - make
+  - cmake --build .
