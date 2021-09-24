@@ -1,10 +1,10 @@
-# CPPNGINE
+# SIMDNGINE
 
 C++ SIMD sandbox.
 
-## Travis
+## CI
 
-[![Build Status](https://travis-ci.com/PamplemousseMR/SIMDNGINE.svg?branch=master)](https://travis-ci.com/PamplemousseMR/SIMDNGINE)
+![Build Status](https://github.com/PamplemousseMR/SIMDNGINE/actions/workflows/build.yml/badge.svg)
 
 ## Getting Started
 
