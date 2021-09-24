@@ -1,36 +1,27 @@
-#========================================
-#	project
-#========================================
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT("SIMDNGINE" CXX)
+#=======================================
+#                PROJECT
+#=======================================
 
-#================================================================================
-#================================================================================
+cmake_minimum_required(VERSION 3.0)
+project("SIMDNGINE")
 
-#========================================
-#	variables
-#========================================
-SET(cppngine_src_dir "src")
-SET(cppngine_header_dir "include")
+#=======================================
+#               EXECUTABLE
+#=======================================
 
-#========================================
-#	compiler specifications
-#========================================
-SET(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse -msse2 -msse3 -msse4")
+set(simdngine_src
+    src/main.cpp
+    src/MMXMmintrin.cpp
+    src/SSE2Emmintrin.cpp
+    src/SSE3Pmmintrin.cpp
+    src/SSE41Smmintrin.cpp
+    src/SSEXmmintrin.cpp
+    src/SSSE3Tmmintrin.cpp)
 
-#================================================================================
-#       create project
-#================================================================================
+set(simdngine_header
+    include/simd.hpp)
 
-#====================
-#	find files
-#====================
-FILE(GLOB_RECURSE cppngine_src_files ${cppngine_src_dir}/*)
-FILE(GLOB_RECURSE cppngine_header_files ${cppngine_header_dir}/*)
-
-#====================
-#	create
-#====================
-ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ${cppngine_src_files} ${cppngine_header_files})
-TARGET_INCLUDE_DIRECTORIES(${CMAKE_PROJECT_NAME} PRIVATE ${cppngine_header_dir})
+add_executable(SIMDNGINE ${simdngine_src} ${simdngine_header})
+target_include_directories(SIMDNGINE PRIVATE "include")
+set_target_properties(SIMDNGINE PROPERTIES CXX_STANDARD 14)
+set_target_properties(SIMDNGINE PROPERTIES COMPILE_FLAGS "-msse -msse2 -msse3 -msse4")

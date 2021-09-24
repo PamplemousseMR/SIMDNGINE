@@ -1,4 +1,4 @@
-#include "Simd.hpp"
+#include "simd.hpp"
 
 #include <assert.h>
 
